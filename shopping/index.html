@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MISS AN｜購物</title>
+<link rel="stylesheet" href="app.css">
+<header class="shell">
+  <img src="miss-an-logo.png" alt="MISS AN">
+  <nav aria-label="系統"><a href="#shopping" aria-current="page">購物</a></nav>
+</header>
+<main id="shopping">
+  <div class="heading"><h1>購物筆記</h1><button id="newOrder" class="primary">＋ 新增訂單</button></div>
+  <p class="note">開發預覽 · 資料保存在此瀏覽器</p>
+  <p id="pageStatus" role="status"></p>
+  <section id="orderList" aria-label="訂單"></section>
+  <dialog id="batchEditor">
+    <header class="heading"><h2>新增訂單</h2><button id="closeBatch" type="button">關閉</button></header>
+    <div class="row" aria-label="購買地區">
+      <button id="domestic" type="button" aria-pressed="false">國內</button>
+      <button id="overseas" type="button" aria-pressed="false">國外</button>
+      <button id="freight" type="button" aria-pressed="false">回貨</button>
+    </div>
+    <form id="batchForm" hidden>
+      <div id="batchOptions"></div>
+      <details class="note-details">
+        <summary>從試算表貼上多張筆記</summary>
+        <label id="pasteFormat" for="pasteNotes"></label>
+        <textarea id="pasteNotes" rows="4"></textarea>
+        <button id="applyPaste" type="button">帶入筆記</button>
+      </details>
+      <div id="batchNotes"></div>
+      <button id="addBatchNote" type="button">＋ 加一張筆記</button>
+      <p id="batchStatus" role="alert"></p>
+      <div id="batchDuplicate"></div>
+      <footer><button type="submit" class="primary">一次儲存</button></footer>
+    </form>
+  </dialog>
+  <dialog id="editor">
+    <form id="orderForm">
+      <header class="heading"><h2 id="editorTitle">訂單</h2><button type="button" id="closeEditor">關閉</button></header>
+      <div id="orderFields"></div>
+      <p id="formStatus" role="alert"></p>
+      <div id="duplicateActions"></div>
+      <footer><button type="button" id="deleteOrder">刪除這筆</button> <button type="submit" class="primary">儲存訂單</button></footer>
+    </form>
+  </dialog>
+</main>
+<script src="orders.js" defer></script>
+<script src="app.js" defer></script>
+</html>
